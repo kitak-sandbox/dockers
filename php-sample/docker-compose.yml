@@ -1,0 +1,12 @@
+version: '2'
+services:
+  nginx:
+    build: Dockerfiles/nginx/.
+    ports:
+      - "3000:80"
+    links:
+      - web
+  web:
+    build: Dockerfiles/php-fpm/.
+    volumes:
+      - ./php-files:/var/www/html
